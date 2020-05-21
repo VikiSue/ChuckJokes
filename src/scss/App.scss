@@ -1,0 +1,94 @@
+//VARIABLES
+$textUnhovered: #ababab;
+$textColor: #333;
+$backgroundColor: #f8f8f8;
+$md: 835px !important;
+
+//IMPORTS
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import 'mixins';
+@import 'loader';
+@import 'form';
+@import 'card';
+@import 'overlayFavorite';
+
+.App {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    color: $textColor;
+    position: relative;
+    overflow: auto;
+    &__content {
+        min-height: 100vh;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.centerPanel {
+    width: 65%;
+    height: 100%;
+    @media screen and(max-width: 830px) {
+        width: 100%;
+    }
+}
+.sidePanel {
+    width: 35%;
+    min-height: 100%;
+    @media screen and(max-width: 830px) {
+        width: 0;
+        display: none;
+    }
+}
+.main {
+    width: 90%;
+    max-width: 680px;
+    margin: 40px auto 0;
+    font-size: 1.8em;
+    &__header {
+        font-size: 20px;
+        line-height: 28px;
+        width: 100%;
+        text-align: left;
+        padding-bottom: 78px;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__pale {
+        color: $textUnhovered;
+        margin-left: 17px;
+    }
+    &__link {
+        cursor: pointer;
+        @include bounceIn(1.1);
+        display: none;
+        @media screen and(max-width: 830px) {
+            display: block;
+        }
+    }
+}
+.jokesList {
+    width: 90%;
+    margin: 0 auto;
+}
+.favorite {
+    background-color: $backgroundColor;
+    padding-top: 40px;
+    min-height: 100%;
+    &__title {
+        color: $textUnhovered;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 28px;
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+.hidden {
+    display: none;
+}

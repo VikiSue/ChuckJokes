@@ -1,0 +1,130 @@
+.form {
+    margin: 40px 0;
+    &__group {
+        position: relative;
+    }
+    &__label {
+        font-size: 18px;
+        line-height: 26px;
+        width: 100%;
+        max-height: 26px;
+        min-height: 26px;
+        overflow: hidden;
+        transition: all 0.3s ease-in;
+
+        &--shown {
+            max-height: 300px;
+            min-height: 42px;
+            overflow: visible;
+        }
+    }
+    &__line {
+        display: flex;
+        align-items: center;
+    }
+    &__radio {
+        height: 20px;
+        width: 20px;
+        display: inline-block;
+        margin-right: 15px;
+    }
+    &__textInput {
+        display: block;
+        width: 100%;
+        height: 42px;
+        border: 2px solid $textColor;
+        box-sizing: border-box;
+        border-radius: 10px;
+        padding: 10px;
+        outline: none;
+        transition: all 0.3s ease-in;
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: $textUnhovered;
+            color: #fff;
+        }
+    }
+    &__error {
+        font-size: 12px;
+        color: red;
+        height: 14px;
+        margin: 5px 0;
+    }
+    &__assistiveText {
+        height: 14px;
+        margin: 5px 0;
+    }
+    &__inputGroup {
+        width: 100%;
+        display: block;
+    }
+    &__btn {
+        outline: none;
+        width: 152px;
+        height: 42px;
+        border: 2px solid transparent;
+        background: linear-gradient(92.01deg, #8ea7ff 0%, #7291ff 100%);
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 22px;
+        color: #ffffff;
+        transition: all 0.4s ease-in;
+        &:hover,
+        &:focus,
+        &:active {
+            box-shadow: 0px 0px 0px 3px rgba(150, 242, 255, 1);
+        }
+        &:disabled {
+            background: $textUnhovered;
+        }
+    }
+}
+.categories {
+    &__slide {
+        max-height: 300px;
+        min-height: 42px;
+        transition: all 0.5s ease-in;
+        overflow: hidden;
+        margin: 20px 0;
+        &--hidden {
+            max-height: 0;
+            min-height: 0;
+        }
+    }
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 -10px;
+    }
+    &__label {
+        text-align: center;
+        height: 28px;
+        border: 2px solid #f8f8f8;
+        border-radius: 6px;
+        margin: 5px 10px;
+        &:hover {
+            @include category;
+        }
+    }
+    &__text {
+        height: 100%;
+        color: $textUnhovered;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 26px;
+        letter-spacing: 2px;
+        padding: 0 6px;
+        border-radius: 6px;
+        transition: all 0.2s ease-in;
+        text-transform: uppercase;
+    }
+    &__input {
+        display: none;
+        &:checked + .categories__text {
+            @include category;
+        }
+    }
+}
