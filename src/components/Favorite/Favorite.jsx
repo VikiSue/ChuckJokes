@@ -1,5 +1,6 @@
 import React from 'react';
 import FavoriteList from './FavoriteList';
+import PropTypes from 'prop-types';
 
 const Favorite = ({ favoriteList }) => {
     return (
@@ -10,3 +11,7 @@ const Favorite = ({ favoriteList }) => {
     );
 };
 export default Favorite;
+
+Favorite.propTypes = {
+    favoriteList: PropTypes.arrayOf(PropTypes.object).isRequired
+};

@@ -6,18 +6,19 @@ import { getCategories } from '../../redux/actions/getCategories';
 import Loader from '../Loader';
 import { useSearchForm } from './useSearchForm';
 import { textLength } from '../../services/validators';
+import PropTypes from 'prop-types';
 
-const SearchForm = props => {
+const SearchForm = ({ getCategories, handleSubmit, categories, isLoading }) => {
     const {
         searchType,
         onSearchTypeChange,
         handleRadioQuery,
         handleTextQuery,
         dbtDisabled,
-    } = useSearchForm(props.getCategories);
+    } = useSearchForm(getCategories);
 
     return (
-        <form onSubmit={props.handleSubmit} className="form">
+        <form onSubmit={handleSubmit} className="form">
             <div className="form__group">
                 <label className="form__label">
                     <div className="form__line">
@@ -60,7 +61,7 @@ const SearchForm = props => {
                         }
                     >
                         <div className="categories__list">
-                            {props.categories.map(item => (
+                            {categories.map(item => (
                                 <label key={item} className="categories__label">
                                     <Field
                                         onChange={handleRadioQuery}
@@ -110,14 +111,10 @@ const SearchForm = props => {
                 </label>
             </div>
 
-            {props.isLoading ? (
+            {isLoading ? (
                 <Loader />
             ) : (
-                <button
-                    type="submit"
-                    className="form__btn"
-                    disabled={dbtDisabled}
-                >
+                <button type="submit" className="form__btn" disabled={dbtDisabled}>
                     Get a joke
                 </button>
             )}
@@ -135,3 +132,10 @@ const SearchFormContainer = connect(
     { getCategories }
 )(SearchFormRedux);
 export default SearchFormContainer;
+
+SearchFormContainer.propTypes = {
+    getCategories: PropTypes.func,
+    handleSubmit: PropTypes.func,
+    categories: PropTypes.array,
+    isLoading: PropTypes.bool,
+};

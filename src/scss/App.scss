@@ -43,6 +43,12 @@ $md: 835px !important;
         display: none;
     }
 }
+
+.hidden {
+    display: none;
+}
+
+//MAIN
 .main {
     width: 90%;
     max-width: 680px;
@@ -72,10 +78,13 @@ $md: 835px !important;
         }
     }
 }
+//JOKE LIST
 .jokesList {
     width: 90%;
     margin: 0 auto;
 }
+
+//FAVORITE
 .favorite {
     background-color: $backgroundColor;
     padding-top: 40px;
@@ -88,7 +97,19 @@ $md: 835px !important;
         width: 90%;
         margin: 0 auto;
     }
-}
-.hidden {
-    display: none;
+    &__null {
+        width: 90%;
+        margin: 20px auto;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    &__sadChuck {
+        width: 100%;
+        margin: 15px 0;
+    }
+    &__img {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
 }

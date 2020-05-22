@@ -60,7 +60,7 @@
         display: block;
     }
     &__btn {
-        outline: none;
+        outline: none!important;
         width: 152px;
         height: 42px;
         border: 2px solid transparent;
@@ -78,6 +78,11 @@
         }
         &:disabled {
             background: $textUnhovered;
+            &:hover,
+            &:focus,
+            &:active {
+                box-shadow: none;
+            }
         }
     }
 }

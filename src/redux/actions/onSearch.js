@@ -1,6 +1,7 @@
 import { SEARCH_REQUEST, SEARCH_SUCCESS, SEARCH_FAILURE } from "../../types";
 import { fetchData } from "../../services/fetchData";
 
+
 export const onSearch = (searchType, category, text) => dispatch => {
   dispatch({ type: SEARCH_REQUEST });
   const url = "https://api.chucknorris.io/jokes";

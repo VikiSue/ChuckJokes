@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useSearchForm = getCategories => {
+export const useSearchForm = (getCategories, jokes) => {
   const [searchType, setSearchType] = useState(undefined);
   const [categoty, setCategory] = useState(undefined);
   const [text, setText] = useState(undefined);
